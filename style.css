@@ -1,7 +1,51 @@
-@import 'https://fonts.googleapis.com/css?family=Allan|Lily+Script+One';
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400';
 
 body {
-  background-image: url('sonytv.png');
-  background-repeat: no-repeat;
-  background-size: auto 100vh;
+  background-image: url('sonytv.png'), url('worn_dots/worn_dots.png');
+  background-repeat: no-repeat, repeat;
+  background-size: auto 100vh, auto;
+  font-family: "Josefin Sans", Helvetica, sans-serif;
+}
+
+h1, h2 {
+  font-size: 60px;
+  font-weight: bold;
+  color: #000000;
+  /*-webkit-text-stroke: 1px black;*/
+}
+
+h1 {
+  text-align: right;
+  margin-right: 40px;
+}
+
+h2 {
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.main {
+  padding-bottom: 20px;
+  position: relative;
+  top: 45vh;
+}
+
+.input-group {
+  position: relative;
+}
+
+.form-control {
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 200;
+}
+
+.input-group-addon {
+  border-radius: 10px;
+}
+
+
+button {
+  margin: 10px;
 }
