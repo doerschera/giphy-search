@@ -7,6 +7,10 @@ body {
   font-family: "Josefin Sans", Helvetica, sans-serif;
 }
 
+.disable {
+  display: none;
+}
+
 h1, h2 {
   font-size: 60px;
   font-weight: bold;
@@ -27,7 +31,7 @@ h2 {
 .main {
   padding-bottom: 20px;
   position: relative;
-  top: 45vh;
+  top: 38vh;
 }
 
 .input-group {
@@ -45,7 +49,20 @@ h2 {
   border-radius: 10px;
 }
 
-
-button {
+.btn {
   margin: 10px;
+}
+
+#results {
+  margin-top: 40px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+}
+
+#results div {
+  margin: 10px;
+}
+
+.desaturate {
+  filter: grayscale(100%);
 }
