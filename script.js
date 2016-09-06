@@ -25,9 +25,12 @@ $(document).ready(function() {
     }).done(function(response) {
       for(var i = 0; i < 12; i++) {
         var fixedImage = response.data[i].images.fixed_height_still.url;
+        var rating = response.data[i].rating;
         $('#results').append('<div>');
         $('#results > div').addClass('gif');
         $('#results').children('div').eq(i).append('<img src="'+fixedImage+'">');
+        $('.gif').eq(i).append("<div class='hover'>");
+        $(".hover").eq(i).append("<p>"+rating+"</p>");
       }
 
       $('.gif').on("click", function() {
@@ -41,11 +44,22 @@ $(document).ready(function() {
         $('.movie').append("<img src='"+playImage+"'>");
       })
 
+      $('.gif').hover(
+        function() {
+          var index = $('.gif').index(this);
+          $('.hover').eq(index).css('display', 'inline-block');
+        },
+        function() {
+          var index = $('.gif').index(this);
+          $('.hover').eq(index).css('display', 'none');
+        });
+
       $('#back').on("click", function() {
         $('#play, #back').addClass('disable');
         $('.main').removeClass('disable');
         $('#results').css('display', 'block');
       })
+
     })
   })
 

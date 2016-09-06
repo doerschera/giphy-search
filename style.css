@@ -63,7 +63,7 @@ h2 {
   padding: 20px;
 }
 
-.gif {
+.gif, .hover {
   display: inline-block;
   text-align: center;
   margin: 10px;
@@ -73,6 +73,23 @@ h2 {
   overflow: hidden;
   border-radius: 10px;
   border: solid 5px #ffffff;
+}
+
+.hover {
+  background-color: rgba(204, 204, 204, 0.7);
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  border-radius: 0;
+  display: none;
+}
+
+.hover p {
+  line-height: 200px;
+  color: #ffffff;
+  font-size: 50px;
 }
 
 .gif img {
