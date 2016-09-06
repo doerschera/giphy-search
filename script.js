@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   var firstSeach = true;
   var searchTerm;
-  var suggestions = ['tree', 'flower', 'bird', 'puppy', 'cat', 'mad', 'happy', 'perfect', 'alone', 'movie', 'Bob Ross', 'ice cream', 'snow', 'rain', 'teen', '30', '20', 'girl', 'family', 'mom', 'dad', 'telephone', 'tv', 'house'];
+  var suggestions = ['tree', 'flower', 'bird', 'puppy', 'cat', 'mad', 'happy', 'perfect', 'lonely', 'movie', 'Bob Ross', 'ice cream', 'snow', 'rain', 'teen', 'cube', 'thing', 'girl', 'family', 'mom', 'dad', 'telephone', 'tv', 'house'];
 
   suggestBtn();
 
@@ -23,12 +23,30 @@ $(document).ready(function() {
     ajaxCall();
   })
 
+  $('header a').on("click", function() {
+
+  })
+
   function suggestBtn() {
     for(var i = 0; i < 6; i++) {
+      var index = Math.floor(Math.random()*suggestions.length);
       $('#suggestions').append('<button>');
       $('#suggestions button:last-child').addClass('btn btn-default');
-      $('#suggestions button:last-child').html(suggestions[i]);
+      $('#suggestions button:last-child').html(suggestions[index]);
     }
+  }
+
+  function home() {
+    $('.main').animate({top: '38vh'});
+    $('.form-control').css({
+      "height": "50px",
+      "font-size": "20px"
+    });
+    $('#results, #pastSearches').fadeOut(0);
+    $('#suggestions').removeClass('disable');
+    $('header').addClass('disable');
+    firstSeach = false;
+    suggestBtn();
   }
 
   function ajaxCall() {
@@ -40,6 +58,7 @@ $(document).ready(function() {
         "height": "32px",
         "font-size": "14px"
       });
+      $('header').removeClass('disable');
       $('#results, #pastSearches').fadeIn(700);
       $('#suggestions').addClass('disable');
       firstSeach = false;
