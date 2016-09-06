@@ -85,3 +85,27 @@ h2 {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
 }
+
+#play {
+  margin-top: 30vh;
+  height: 250px;
+}
+
+#back {
+  text-align: left;
+  position: absolute;
+  top: -25px;
+  font-size: 14px;
+}
+
+a, a:hover {
+  color: #000;
+}
+
+#play img {
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

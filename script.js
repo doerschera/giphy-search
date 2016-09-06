@@ -29,6 +29,17 @@ $(document).ready(function() {
         $('#results > div').addClass('gif');
         $('#results').children('div').eq(i).append('<img src="'+fixedImage+'">');
       }
+
+      $('.gif').on("click", function() {
+        var index = $(".gif").index(this);
+        var playImage = response.data[index].images.fixed_height.url;
+        $('#play, #back').removeClass('disable');
+        $('.main').addClass('disable');
+        $('#results').css('display', 'none');
+        $('#play').append('<div>');
+        $('#play').addClass('movie');
+        $('.movie').append("<img src='"+playImage+"'>");
+      })
     })
   })
 
