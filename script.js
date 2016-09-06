@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   var firstSeach = true;
   var searchTerm;
+  var pastNumbers = [];
   var suggestions = ['tree', 'flower', 'bird', 'puppy', 'cat', 'mad', 'happy', 'perfect', 'lonely', 'movie', 'Bob Ross', 'ice cream', 'snow', 'rain', 'teen', 'cube', 'thing', 'girl', 'family', 'mom', 'dad', 'telephone', 'tv', 'house'];
 
   suggestBtn();
@@ -23,16 +24,21 @@ $(document).ready(function() {
     ajaxCall();
   })
 
-  $('header a').on("click", function() {
-
+  $('#home').on("click", function() {
+    home();
   })
 
   function suggestBtn() {
     for(var i = 0; i < 6; i++) {
       var index = Math.floor(Math.random()*suggestions.length);
-      $('#suggestions').append('<button>');
-      $('#suggestions button:last-child').addClass('btn btn-default');
-      $('#suggestions button:last-child').html(suggestions[index]);
+      if(pastNumbers.length == suggestions.length) {
+        pastNumbers = [];
+      } else if (pastNumbers.indexOf(index) == -1) {
+        pastNumbers.push(index);
+        $('#suggestions').append('<button>');
+        $('#suggestions button:last-child').addClass('btn btn-default');
+        $('#suggestions button:last-child').html(suggestions[index]);
+      }
     }
   }
 
@@ -45,6 +51,8 @@ $(document).ready(function() {
     $('#results, #pastSearches').fadeOut(0);
     $('#suggestions').removeClass('disable');
     $('header').addClass('disable');
+    $('#suggestions').empty();
+    $('#results').empty();
     firstSeach = false;
     suggestBtn();
   }
