@@ -1,9 +1,27 @@
 $(document).ready(function() {
 
   var firstSeach = true;
+  var searchTerm;
   var suggestions = ['tree', 'flower', 'bird', 'puppy', 'cat', 'mad', 'happy', 'perfect', 'alone', 'movie', 'Bob Ross', 'ice cream', 'snow', 'rain', 'teen', '30', '20', 'girl', 'family', 'mom', 'dad', 'telephone', 'tv', 'house'];
 
   suggestBtn();
+
+  $('#searchButton').on("click", function() {
+    searchTerm = $('#searchField').val();
+    ajaxCall();
+  })
+
+  $(document).on("keypress", function() {
+    if(event.which == 13) {
+      searchTerm = $('#searchField').val();
+      ajaxCall();
+    }
+  })
+
+  $('button').on("click", function() {
+    searchTerm = $(this).html();
+    ajaxCall();
+  })
 
   function suggestBtn() {
     for(var i = 0; i < 6; i++) {
@@ -13,8 +31,7 @@ $(document).ready(function() {
     }
   }
 
-  $('#searchButton').on("click", function() {
-    var searchTerm = $('#searchField').val();
+  function ajaxCall() {
     var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+searchTerm+"&limit=12&api_key=dc6zaTOxFJmzC"
 
     if(firstSeach) {
@@ -77,6 +94,6 @@ $(document).ready(function() {
       })
 
     })
-  })
+  }
 
 })
