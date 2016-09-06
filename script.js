@@ -55,6 +55,7 @@ $(document).ready(function() {
         });
 
       $('#back').on("click", function() {
+        $('#play img').remove();
         $('#play, #back').addClass('disable');
         $('.main').removeClass('disable');
         $('#results').css('display', 'block');
