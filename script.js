@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     if(firstSeach) {
       $('.main').animate({top: '20px'});
-      $('#results, #pastSearches').removeClass('disable');
+      $('#results, #pastSearches').fadeIn(700);
       $('#suggestions').addClass('disable');
       firstSeach = false;
     }
@@ -18,9 +18,9 @@ $(document).ready(function() {
       method: 'GET'
     }).done(function(response) {
       for(var i = 0; i < 10; i++) {
-        var fixedImage = response.data[i].images.fixed_width_still.url;
+        var fixedImage = response.data[i].images.fixed_height_still.url;
         $('#results').append('<div>');
-        $('#results > div').addClass('gif col-xs-12 col-md-6');
+        $('#results > div').addClass('gif');
         $('#results').children('div').eq(i).append('<img src="'+fixedImage+'">');
       }
     })

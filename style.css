@@ -54,15 +54,20 @@ h2 {
 }
 
 #results {
-  margin-top: 40px;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
+  text-align: center;
+  padding: 20px 0px;
 }
 
-#results div {
+.gif {
+  display: inline-block;
+  text-align: center;
   margin: 10px;
 }
 
-.desaturate {
-  filter: grayscale(100%);
+.gif img {
+  filter: grayscale(100%) !important;
+  -webkit-filter: grayscale(100%);
 }
