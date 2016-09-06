@@ -35,6 +35,10 @@ h2 {
   top: 38vh;
 }
 
+#suggestions {
+  text-align: center;
+}
+
 .input-group {
   position: relative;
 }

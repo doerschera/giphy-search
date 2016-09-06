@@ -1,6 +1,17 @@
 $(document).ready(function() {
 
   var firstSeach = true;
+  var suggestions = ['tree', 'flower', 'bird', 'puppy', 'cat', 'mad', 'happy', 'perfect', 'alone', 'movie', 'Bob Ross', 'ice cream', 'snow', 'rain', 'teen', '30', '20', 'girl', 'family', 'mom', 'dad', 'telephone', 'tv', 'house'];
+
+  suggestBtn();
+
+  function suggestBtn() {
+    for(var i = 0; i < 6; i++) {
+      $('#suggestions').append('<button>');
+      $('#suggestions button:last-child').addClass('btn btn-default');
+      $('#suggestions button:last-child').html(suggestions[i]);
+    }
+  }
 
   $('#searchButton').on("click", function() {
     var searchTerm = $('#searchField').val();
