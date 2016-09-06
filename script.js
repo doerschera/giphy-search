@@ -40,6 +40,12 @@ $(document).ready(function() {
         $('#play').addClass('movie');
         $('.movie').append("<img src='"+playImage+"'>");
       })
+
+      $('#back').on("click", function() {
+        $('#play, #back').addClass('disable');
+        $('.main').removeClass('disable');
+        $('#results').css('display', 'block');
+      })
     })
   })
 
