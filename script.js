@@ -93,14 +93,11 @@ $(document).ready(function() {
       }
 
       $('.gif').on("click", function() {
-        var index = $(".gif").index(this);
-        var playImage = response.data[index].images.fixed_height.url;
-        $('#play, #back').removeClass('disable');
-        $('.main').addClass('disable');
-        $('#results').css('display', 'none');
-        $('#play').append('<div>');
-        $('#play').addClass('movie');
-        $('.movie').append("<img src='"+playImage+"'>");
+        play();
+      })
+
+      $('#back').on("click", function() {
+        back();
       })
 
       $('.gif').hover(
@@ -113,12 +110,25 @@ $(document).ready(function() {
           $('.hover').eq(index).css('display', 'none');
         });
 
-      $('#back').on("click", function() {
+      function back() {
         $('#play img').remove();
         $('#play, #back').addClass('disable');
         $('.main').removeClass('disable');
         $('#results').css('display', 'block');
-      })
+        $('header').removeClass('disable');
+      }
+
+      function play() {
+        var index = $(".gif").index(this);
+        var playImage = response.data[index].images.fixed_height.url;
+        $('#play, #back').removeClass('disable');
+        $('.main').addClass('disable');
+        $('#results').css('display', 'none');
+        $('#play').append('<div>');
+        $('#play').addClass('movie');
+        $('.movie').append("<img src='"+playImage+"'>");
+        $('header').addClass('disable');
+      }
 
     })
   }
