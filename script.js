@@ -19,6 +19,10 @@ $(document).ready(function() {
       $('#results').empty();
     }
 
+    $('#pastSearches').append('<button>');
+    $('#pastSearches button:last-child').addClass('btn btn-default');
+    $('#pastSearches button:last-child').html(searchTerm);
+
     $.ajax({
       url: queryUrl,
       method: 'GET'
