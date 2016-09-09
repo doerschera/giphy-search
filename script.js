@@ -19,7 +19,12 @@ $(document).ready(function() {
     }
   })
 
-  $('button').on("click", function() {
+  $('#suggestions').on("click", ".btn", function() {
+    searchTerm = $(this).html();
+    ajaxCall();
+  })
+
+  $('#pastSearches').on("click", ".btn", function() {
     searchTerm = $(this).html();
     ajaxCall();
   })
@@ -29,11 +34,10 @@ $(document).ready(function() {
   })
 
   function suggestBtn() {
+    pastNumbers = [];
     for(var i = 0; i < 6; i++) {
       var index = Math.floor(Math.random()*suggestions.length);
-      if(pastNumbers.length == suggestions.length) {
-        pastNumbers = [];
-      } else if (pastNumbers.indexOf(index) == -1) {
+      if (pastNumbers.indexOf(index) == -1) {
         pastNumbers.push(index);
         $('#suggestions').append('<button>');
         $('#suggestions button:last-child').addClass('btn btn-default');
@@ -53,7 +57,7 @@ $(document).ready(function() {
     $('header').addClass('disable');
     $('#suggestions').empty();
     $('#results').empty();
-    firstSeach = false;
+    firstSeach = true;
     suggestBtn();
   }
 
@@ -93,11 +97,15 @@ $(document).ready(function() {
       }
 
       $('.gif').on("click", function() {
-        play();
-      })
-
-      $('#back').on("click", function() {
-        back();
+        var index = $(".gif").index(this);
+        var playImage = response.data[index].images.fixed_height.url;
+        $('#play, #back').removeClass('disable');
+        $('.main').addClass('disable');
+        $('#results').css('display', 'none');
+        $('#play').append('<div>');
+        $('#play').addClass('movie');
+        $('.movie').append("<img src='"+playImage+"'>");
+        $('header').addClass('disable');
       })
 
       $('.gif').hover(
@@ -110,25 +118,13 @@ $(document).ready(function() {
           $('.hover').eq(index).css('display', 'none');
         });
 
-      function back() {
+      $('#back').on("click", function() {
         $('#play img').remove();
         $('#play, #back').addClass('disable');
         $('.main').removeClass('disable');
         $('#results').css('display', 'block');
         $('header').removeClass('disable');
-      }
-
-      function play() {
-        var index = $(".gif").index(this);
-        var playImage = response.data[index].images.fixed_height.url;
-        $('#play, #back').removeClass('disable');
-        $('.main').addClass('disable');
-        $('#results').css('display', 'none');
-        $('#play').append('<div>');
-        $('#play').addClass('movie');
-        $('.movie').append("<img src='"+playImage+"'>");
-        $('header').addClass('disable');
-      }
+      })
 
     })
   }
