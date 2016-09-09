@@ -3,7 +3,7 @@ $(document).ready(function() {
   var firstSeach = true;
   var searchTerm;
   var pastNumbers = [];
-  var suggestions = ['tree', 'flower', 'bird', 'puppy', 'cat', 'mad', 'happy', 'perfect', 'lonely', 'movie', 'Bob Ross', 'ice cream', 'snow', 'rain', 'teen', 'cube', 'thing', 'girl', 'family', 'mom', 'dad', 'telephone', 'tv', 'house'];
+  var suggestions = ['tree', 'flower', 'bird', 'puppy', 'cat', 'mad', 'happy', 'perfect', 'lonely', 'movie', 'Bob Ross', 'ice cream', 'snow', 'rain', 'suburb', 'cube', 'thing', 'home', 'family', 'mom', 'dad', 'telephone', 'tv', 'house'];
 
   suggestBtn();
 
@@ -81,6 +81,7 @@ $(document).ready(function() {
     $('#pastSearches').append('<button>');
     $('#pastSearches button:last-child').addClass('btn btn-default');
     $('#pastSearches button:last-child').html(searchTerm);
+    $('#searchField').val('');
 
     $.ajax({
       url: queryUrl,
