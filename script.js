@@ -62,7 +62,7 @@ $(document).ready(function() {
   }
 
   function ajaxCall() {
-    var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+searchTerm+"&limit=12&api_key=dc6zaTOxFJmzC"
+    var queryUrl = "https://api.giphy.com/v1/gifs/search?q="+searchTerm+"&limit=12&api_key=dc6zaTOxFJmzC"
 
     if(firstSeach) {
       $('.main').animate({top: '20px'});
