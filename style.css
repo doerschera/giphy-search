@@ -136,3 +136,20 @@ a, a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* Media Queries */
+
+@media (max-width: 750px) {
+  .form-control {
+    height: 30px;
+  }
+
+  .input-group-addon {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn {
+    font-size: 12px;
+  }
+}
