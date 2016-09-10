@@ -106,6 +106,7 @@ $(document).ready(function() {
         $('#play').append('<div>');
         $('#play').addClass('movie');
         $('.movie').append("<img src='"+playImage+"'>");
+        $('.movie img').addClass('img-fluid');
         $('header').addClass('disable');
       })
 
